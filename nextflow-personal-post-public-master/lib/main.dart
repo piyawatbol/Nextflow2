@@ -51,22 +51,34 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: ListView.builder(
           itemBuilder: (BuildContext context, int index) {
-            return Container(
-              padding: EdgeInsets.all(10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    '10 min ago',
-                    style: TextStyle(color: Colors.grey[400]),
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  padding: EdgeInsets.all(10),
+                  child: Column(
+                    children: [
+                      Text(
+                        '10 min ago',
+                        style: TextStyle(color: Colors.grey[400]),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        'สวัสดีโลก',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 10),
-                  Text(
-                    'สวัสดีโลก',
-                    style: TextStyle(fontSize: 20),
-                  )
-                ],
-              ),
+                ),
+                SizedBox(
+                  height: 10,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.grey[350],
+                    ),
+                  ),
+                ),
+              ],
             );
           },
         ));
