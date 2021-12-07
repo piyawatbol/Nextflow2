@@ -13,7 +13,7 @@ class NewPostPage extends StatelessWidget {
       ),
       body: Form(
         child: Column(
-          children: [
+          children: [ 
             Padding(
               padding: EdgeInsets.all(10),
               child: TextFormField(
