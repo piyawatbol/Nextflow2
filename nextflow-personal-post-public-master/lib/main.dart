@@ -64,45 +64,41 @@ class _MyHomePageState extends State<MyHomePage> {
         return ListView.builder(
           itemCount: provider.posts.length,
           itemBuilder: (BuildContext context, int index) {
-            return Text(provider.posts[index]);
+            var post = provider.posts[index];
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  padding: EdgeInsets.all(10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '${post.createDate}',
+                        style: TextStyle(color: Colors.grey[400]),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        '${post.messege}',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ],
+                  ),
+                ),
+                //เส้นสีเท่า
+                SizedBox(
+                  height: 5,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.grey[350],
+                    ),
+                  ),
+                ),
+              ],
+            );
           },
         );
       }),
-
-      // body: ListView.builder(
-      //   itemCount: 1,
-      //   itemBuilder: (BuildContext context, int index) {
-      //     return Column(
-      //       crossAxisAlignment: CrossAxisAlignment.start,
-      //       children: [
-      //         Container(
-      //           padding: EdgeInsets.all(10),
-      //           child: Column(
-      //             children: [
-      //               Text(
-      //                 '10 min ago',
-      //                 style: TextStyle(color: Colors.grey[400]),
-      //               ),
-      //               SizedBox(height: 10),
-      //               Text(
-      //                 'สวัสดีโลก',
-      //                 style: TextStyle(fontSize: 20),
-      //               ),
-      //             ],
-      //           ),
-      //         ),
-      //         SizedBox(
-      //           height: 10,
-      //           child: Container(
-      //             decoration: BoxDecoration(
-      //               color: Colors.grey[350],
-      //             ),
-      //           ),
-      //         ),
-      //       ],
-      //     );
-      //   },
-      // )
     );
   }
 }
