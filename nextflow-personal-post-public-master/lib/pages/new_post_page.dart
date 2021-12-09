@@ -35,7 +35,7 @@ class NewPostPage extends StatelessWidget {
                 },
                 decoration: InputDecoration(
                   border: InputBorder.none,
-                  hintText: 'คุณกำลังทำอะไรอยู่',
+                  hintText:'คุณกำลังทำอะไรอยู่',
                 ),
               ),
             ),
