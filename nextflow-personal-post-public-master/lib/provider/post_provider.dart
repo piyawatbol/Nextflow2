@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 
 class PostProvider with ChangeNotifier {
-  List<String> _posts = ['hello', 'world'];
+  List<String> _posts = [];
 
 // List <String>  get posts {
 //     return _posts;

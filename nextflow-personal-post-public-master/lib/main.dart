@@ -15,9 +15,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: <SingleChildWidget>[
-         ChangeNotifierProvider(create: (BuildContext context) {
-           return PostProvider();
-         } ),
+        ChangeNotifierProvider(create: (BuildContext context) {
+          return PostProvider();
+        }),
       ],
       child: MaterialApp(
         title: 'Nextflow Personal Post',
@@ -69,7 +69,6 @@ class _MyHomePageState extends State<MyHomePage> {
         );
       }),
 
-
       // body: ListView.builder(
       //   itemCount: 1,
       //   itemBuilder: (BuildContext context, int index) {
@@ -104,7 +103,6 @@ class _MyHomePageState extends State<MyHomePage> {
       //     );
       //   },
       // )
-      
     );
   }
 }
