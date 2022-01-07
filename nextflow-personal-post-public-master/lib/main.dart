@@ -5,8 +5,11 @@ import 'package:nextflow_personal_post/pages/new_post_page.dart';
 import 'package:nextflow_personal_post/provider/post_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 void main() {
+  timeago.setLocaleMessages('th', timeago.ThMessages());
+  timeago.setLocaleMessages('th_short', timeago.ThShortMessages());
   runApp(MyApp());
 }
 
@@ -74,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '${post.createDate}',
+                        '${post.timeagoMessage}',
                         style: TextStyle(color: Colors.grey[400]),
                       ),
                       SizedBox(height: 10),

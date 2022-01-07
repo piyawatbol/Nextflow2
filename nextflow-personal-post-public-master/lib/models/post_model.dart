@@ -10,7 +10,7 @@ class Post {
     var now = DateTime.now();
     var duration = now.difference(this.createDate);
     var ago = now.subtract(duration);
-    var message = timeago.format(ago);
-    return message; 
+    var message = timeago.format(ago, locale: 'th_short');
+    return message;
   }
 }
