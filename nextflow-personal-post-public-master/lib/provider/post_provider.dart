@@ -30,4 +30,13 @@ class PostProvider with ChangeNotifier {
     _posts = await postDB.loadAllPosts();
     notifyListeners();
   }
+
+  clearAllPost() async {
+    var postDB = PostDB(databaseName: 'app.db');
+    await postDB.clearPostData();
+
+    _posts = [];
+
+    notifyListeners();
+  }
 }

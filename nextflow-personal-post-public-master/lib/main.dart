@@ -1,7 +1,9 @@
-// ignore_for_file: missing_return
+// ignore_for_file: missing_return, unused_import
 
 import 'package:flutter/material.dart';
+import 'package:nextflow_personal_post/pages/home_page.dart';
 import 'package:nextflow_personal_post/pages/new_post_page.dart';
+import 'package:nextflow_personal_post/pages/settings_page.dart';
 import 'package:nextflow_personal_post/provider/post_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
@@ -23,6 +25,7 @@ class MyApp extends StatelessWidget {
         }),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Nextflow Personal Post',
         theme: ThemeData(
           primarySwatch: Colors.blue,
@@ -45,71 +48,22 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-
-    Provider.of<PostProvider>(context, listen: false).initData();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        actions: <Widget>[
-          IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (BuildContext context) {
-                    return NewPostPage();
-                  }),
-                );
-              },
-              icon: Icon(Icons.add)),
-        ],
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        body: TabBarView(
+          children: [HomePage(), SettingPage()],
+        ),
+        backgroundColor: Colors.blue,
+        bottomNavigationBar: TabBar(tabs: [
+          Tab(
+            icon: Icon(Icons.list),
+            text: 'Timeline',
+          ),
+          Tab(icon: Icon(Icons.settings), text: 'Setting')
+        ]),
       ),
-      body: Consumer<PostProvider>(
-          builder: (BuildContext context, PostProvider provider, Widget child) {
-        return ListView.builder(
-          itemCount: provider.posts.length,
-          itemBuilder: (BuildContext context, int index) {
-            var post = provider.posts[index];
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  padding: EdgeInsets.all(10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        '${post.timeagoMessage}',
-                        style: TextStyle(color: Colors.grey[400]),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        '${post.messege}',
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ],
-                  ),
-                ),
-                //เส้นสีเท่า
-                SizedBox(
-                  height: 5,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey[350],
-                    ),
-                  ),
-                ),
-              ],
-            );
-          },
-        );
-      }),
     );
   }
 }

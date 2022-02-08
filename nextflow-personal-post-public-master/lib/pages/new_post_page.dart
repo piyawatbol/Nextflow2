@@ -48,7 +48,7 @@ class NewPostPage extends StatelessWidget {
                     child: Text("Post"),
                     onPressed: () {
                       // ถ้าเช็คข้อ
-                      if (formKey.currentState.validate()) {
+                      {
                         var message = postMessageController.text;
                         print(message);
                         var postProvider =
